@@ -1,6 +1,6 @@
 import { envs } from "../../src/config/envs.plugin";
 
-export function generateMultaEmailTemplate(): string { //DATOS MULTA
+export function generateMultaEmailTemplate(plate:string, city:string, state:string, speed:number,limit:number, lat:number, lng:number,creationDate:Date): string {
 const mapboxUrl = generateMapboxStaticImageURL(lat,lng)
 return `
 <!DOCTYPE html>
@@ -72,7 +72,11 @@ return `
         </div>
         <div class="content">
             <p><strong>Fecha:</strong> ${creationDate}</p>
-            //MULTA
+            <p><strong>Placa:</strong> ${plate}</p>
+            <p><strong>Ciudad:</strong> ${city}</p>
+            <p><strong>Estado:</strong> ${state}</p>
+            <p><strong>Velocidad:</strong> ${speed}</p>
+            <p><strong>Límite:</strong> ${limit}</p>
             <p><strong>Latitud:</strong> ${lat}</p>
             <p><strong>Longitud:</strong> ${lng}</p>
             <img src="${mapboxUrl}" class="map-img"/>

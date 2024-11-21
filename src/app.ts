@@ -21,7 +21,7 @@ app.use(AppRoutes.routes);
   })
   
   app.post("/",async(req,res)=>{
-    const {lat,lng} = req.body
-    const newMulta = await MultaModel.create()//MULTA
+    const {plate,city,state,speed,limit,lat,lng} = req.body
+    const newMulta = await MultaModel.create({plate,city,state,speed,limit,lat,lng})
     res.send("Multa creada")
   })
